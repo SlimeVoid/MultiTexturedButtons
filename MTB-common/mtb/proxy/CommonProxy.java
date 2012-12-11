@@ -7,8 +7,8 @@ import mtb.core.MTBInit;
 import mtb.network.ServerPacketHandler;
 import mtb.network.packets.PacketUpdateMTButton;
 import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.NetHandler;
 import net.minecraft.src.INetworkManager;
+import net.minecraft.src.NetHandler;
 import net.minecraft.src.Packet1Login;
 import net.minecraft.src.Packet250CustomPayload;
 import net.minecraft.src.TileEntity;
@@ -118,12 +118,12 @@ public class CommonProxy implements ICommonProxy {
 	@Override
 	public void login(NetHandler handler, INetworkManager manager, Packet1Login login) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void registerTickHandler() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

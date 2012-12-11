@@ -1,7 +1,6 @@
 package mtb.items;
 
 import mtb.core.MTBBlocks;
-import mtb.core.MTBCore;
 import mtb.core.MTBItemButtons;
 import mtb.tileentities.TileEntityMTButton;
 import net.minecraft.src.Block;
@@ -13,7 +12,7 @@ import net.minecraft.src.World;
 
 public class ItemMTButton extends ItemBlock {
 	private String[] buttonNames = MTBItemButtons.getButtonNames();
-	
+
 	private final Block blockRef;
 
 	public ItemMTButton(int i) {
@@ -45,8 +44,7 @@ public class ItemMTButton extends ItemBlock {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer,
-			World world, int i, int j, int k, int l, float a, float b, float c) {
+	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l, float a, float b, float c) {
 		Block button = this.blockRef;
 
 		switch (l) {
@@ -70,8 +68,12 @@ public class ItemMTButton extends ItemBlock {
 			break;
 		}
 
-		if (itemstack.stackSize == 0 || !entityplayer.func_82247_a(i, j, k, l, itemstack)
-				|| (j == 255 && button.blockMaterial.isSolid()))
+		if (itemstack.stackSize == 0 || !entityplayer.func_82247_a(
+				i,
+				j,
+				k,
+				l,
+				itemstack) || (j == 255 && button.blockMaterial.isSolid()))
 			return false;
 
 		if (world.canPlaceEntityOnSide(
@@ -82,31 +84,43 @@ public class ItemMTButton extends ItemBlock {
 				false,
 				l,
 				entityplayer)) {
-            int meta = this.getMetadata(itemstack.getItemDamage());
-            int data = button.func_85104_a(world, i, j, k, l, a, b, c, meta);
-			if (this.placeBlockAt(itemstack, entityplayer, world, i, j, k, l, a, b, c, data)) {
+			int meta = this.getMetadata(itemstack.getItemDamage());
+			int data = button.func_85104_a(world, i, j, k, l, a, b, c, meta);
+			if (this.placeBlockAt(
+					itemstack,
+					entityplayer,
+					world,
+					i,
+					j,
+					k,
+					l,
+					a,
+					b,
+					c,
+					data)) {
 				if (world.getBlockId(i, j, k) == button.blockID) {
 					button.onBlockPlacedBy(world, i, j, k, entityplayer);
 					TileEntity tileentity = world.getBlockTileEntity(i, j, k);
-	
-					if (tileentity != null
-							&& tileentity instanceof TileEntityMTButton) {
-						TileEntityMTButton tileentitymtbutton = 
-								(TileEntityMTButton) tileentity;
-						tileentitymtbutton.setTextureValue(
-										itemstack.getItemDamage());
+
+					if (tileentity != null && tileentity instanceof TileEntityMTButton) {
+						TileEntityMTButton tileentitymtbutton = (TileEntityMTButton) tileentity;
+						tileentitymtbutton.setTextureValue(itemstack
+								.getItemDamage());
 						tileentitymtbutton.setSensible(MTBItemButtons
 								.getSensible(itemstack.getItemDamage()));
 						tileentitymtbutton.onInventoryChanged();
 					}
 				}
-	
-				world.playSoundEffect((i + 0.5F), (j + 0.5F), (k + 0.5F),
+
+				world.playSoundEffect(
+						(i + 0.5F),
+						(j + 0.5F),
+						(k + 0.5F),
 						button.stepSound.getStepSound(),
 						(button.stepSound.getVolume() + 1.0F) / 2.0F,
 						button.stepSound.getPitch() * 0.8F);
 				--itemstack.stackSize;
-	
+
 				return true;
 			}
 		}

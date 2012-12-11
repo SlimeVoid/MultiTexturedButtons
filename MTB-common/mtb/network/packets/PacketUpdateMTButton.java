@@ -1,13 +1,12 @@
 package mtb.network.packets;
 
-import eurysmods.network.packets.core.PacketPayload;
-import eurysmods.network.packets.core.PacketTileEntityMT;
 import mtb.core.MTBInit;
 import mtb.tileentities.TileEntityMTButton;
-import net.minecraft.src.TileEntity;
+import eurysmods.network.packets.core.PacketPayload;
+import eurysmods.network.packets.core.PacketTileEntityMT;
 
 public class PacketUpdateMTButton extends PacketTileEntityMT {
-	
+
 	public PacketUpdateMTButton() {
 		super(MTBInit.MTB.getModChannel());
 	}

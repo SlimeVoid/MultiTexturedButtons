@@ -46,7 +46,7 @@ public enum MTBItemButtons {
 		}
 		return false;
 	}
-	
+
 	public static float getHardness(int itemDamage) {
 		for (MTBItemButtons itemstack : MTBItemButtons.values()) {
 			if (itemstack != null && itemstack.stackID == itemDamage) {
@@ -63,7 +63,7 @@ public enum MTBItemButtons {
 	public void setSensible(boolean sensible) {
 		this.sensible = sensible;
 	}
-	
+
 	public void setBlockHardness(float hardness) {
 		this.hardness = hardness;
 	}

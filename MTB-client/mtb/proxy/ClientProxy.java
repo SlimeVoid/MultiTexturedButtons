@@ -1,8 +1,8 @@
 package mtb.proxy;
 
 import mtb.core.MTBInit;
-import mtb.network.ClientPacketHandler;
 import mtb.core.MTBItemButtons;
+import mtb.network.ClientPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ModLoader;

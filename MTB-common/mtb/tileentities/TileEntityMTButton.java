@@ -1,15 +1,13 @@
 package mtb.tileentities;
 
-import eurysmods.network.packets.core.PacketPayload;
-import eurysmods.network.packets.core.PacketUpdate;
-import eurysmods.tileentities.TileEntityMT;
 import mtb.network.packets.PacketUpdateMTButton;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.Packet;
-import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
+import eurysmods.network.packets.core.PacketUpdate;
+import eurysmods.tileentities.TileEntityMT;
 
-public class TileEntityMTButton extends TileEntityMT {	
+public class TileEntityMTButton extends TileEntityMT {
 	protected boolean isSensible;
 
 	public boolean getSensible() {
@@ -42,7 +40,7 @@ public class TileEntityMTButton extends TileEntityMT {
 
 	@Override
 	public void handleUpdatePacket(World world, PacketUpdate packet) {
-		this.setSensible(((PacketUpdateMTButton)packet).getSensible());
+		this.setSensible(((PacketUpdateMTButton) packet).getSensible());
 		super.handleUpdatePacket(world, packet);
 	}
 }

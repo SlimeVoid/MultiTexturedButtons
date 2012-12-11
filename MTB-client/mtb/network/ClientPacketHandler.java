@@ -21,13 +21,12 @@ public class ClientPacketHandler implements IPacketHandling {
 	}
 
 	@Override
-	public void handleGuiPacket(PacketUpdate packet, EntityPlayer entityplayer,
-			World world) {
+	public void handleGuiPacket(PacketUpdate packet, EntityPlayer entityplayer, World world) {
 	}
 
 	@Override
 	public void handlePacket(PacketUpdate packet, EntityPlayer entityplayer, World world) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

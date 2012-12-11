@@ -2,19 +2,17 @@ package mtb.core;
 
 import java.io.File;
 
+import mtb.tileentities.TileEntityMTButton;
+import net.minecraft.src.Block;
+import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.TileEntity;
+import net.minecraftforge.common.Configuration;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.ICore;
 import eurysmods.core.BlockRemover;
 import eurysmods.core.Core;
 import eurysmods.core.EurysCore;
 import eurysmods.core.RecipeRemover;
-import mtb.network.ServerPacketHandler;
-import mtb.tileentities.TileEntityMTButton;
-import net.minecraft.src.Block;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.TileEntity;
-import net.minecraftforge.common.Configuration;
 
 public class MTBInit {
 	public static ICore MTB;
@@ -29,7 +27,7 @@ public class MTBInit {
 		MTB.setModChannel("MTB");
 		MTBCore.configFile = new File(
 				MTBInit.MTB.getProxy().getMinecraftDir(),
-				"config/MultiTexturedButtons.cfg");
+					"config/MultiTexturedButtons.cfg");
 		MTBCore.configuration = new Configuration(MTBCore.configFile);
 		load();
 	}
@@ -51,8 +49,7 @@ public class MTBInit {
 		MTBCore.addRecipes();
 	}
 
-	public static int getDamageValue(IBlockAccess blockAccess, int x, int y,
-			int z) {
+	public static int getDamageValue(IBlockAccess blockAccess, int x, int y, int z) {
 		TileEntity tileentity = blockAccess.getBlockTileEntity(x, y, z);
 		if (tileentity != null && tileentity instanceof TileEntityMTButton) {
 			TileEntityMTButton tileentitymtbutton = (TileEntityMTButton) tileentity;

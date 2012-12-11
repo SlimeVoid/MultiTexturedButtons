@@ -2,27 +2,22 @@ package mtb.core;
 
 import java.io.File;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-
-import eurysmods.api.ICommonProxy;
-
 import mtb.blocks.BlockMTButton;
 import mtb.items.ItemMTButton;
-import mtb.network.MTBConnection;
 import mtb.tileentities.TileEntityMTButton;
 import net.minecraft.src.Block;
-import net.minecraft.src.EnumMobType;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
+import cpw.mods.fml.common.registry.GameRegistry;
+import eurysmods.api.ICommonProxy;
 
 public class MTBCore {
 	public static File configFile;
 	public static Configuration configuration;
 	public static boolean initialized = false;
-	
 
 	public static void initialize(ICommonProxy proxy) {
 		if (initialized)
@@ -33,15 +28,14 @@ public class MTBCore {
 
 	public static void addItems() {
 		MTBBlocks.mtButton.id = configurationProperties();
-		MTBBlocks.mtButton.me =
-				new BlockMTButton(
-						MTBBlocks.mtButton.id,
-						TileEntityMTButton.class,
-						0.5F,
-						Block.soundStoneFootstep,
-						true,
-						true,
-						"mtButton");
+		MTBBlocks.mtButton.me = new BlockMTButton(
+				MTBBlocks.mtButton.id,
+					TileEntityMTButton.class,
+					0.5F,
+					Block.soundStoneFootstep,
+					true,
+					true,
+					"mtButton");
 		GameRegistry.registerTileEntity(TileEntityMTButton.class, "mtButton");
 		for (MTBItemButtons button : MTBItemButtons.values()) {
 			button.me = new ItemStack(MTBBlocks.mtButton.me, 1, button.stackID);
@@ -147,11 +141,10 @@ public class MTBCore {
 
 	public static int configurationProperties() {
 		configuration.load();
-		MTBBlocks.mtButton.id = Integer.parseInt(
-				configuration.get(
-						Configuration.CATEGORY_BLOCK,
-						"mtButton",
-						143).value);
+		MTBBlocks.mtButton.id = Integer.parseInt(configuration.get(
+				Configuration.CATEGORY_BLOCK,
+				"mtButton",
+				143).value);
 		MTBBlocks.mtButton.name = "Multi-Textured Button";
 		MTBItemButtons.iron.name = "Iron-Clad Button";
 		MTBItemButtons.iron.stackID = 0;

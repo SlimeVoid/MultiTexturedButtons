@@ -2,10 +2,10 @@ package mtb.core;
 
 import mtb.network.MTBConnection;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -31,12 +31,12 @@ public class MultiTexturedButtons {
 
 	@Init
 	public void MultiTexturedButtonsInit(FMLInitializationEvent event) {
-		
+
 	}
 
 	@PreInit
 	public void MultiTexturedButtonsPreInit(FMLPreInitializationEvent event) {
-		
+
 	}
 
 	@PostInit
