@@ -74,10 +74,10 @@ public class CommonProxy implements ICommonProxy {
 			int packetID = data.read();
 			switch (packetID) {
 			case PacketIds.TILE:
-				PacketUpdateMTButton packetPPlate = new PacketUpdateMTButton();
-				packetPPlate.readData(data);
+				PacketUpdateMTButton packetButton = new PacketUpdateMTButton();
+				packetButton.readData(data);
 				MTBInit.MTB.getPacketHandler().handleTileEntityPacket(
-						packetPPlate,
+						packetButton,
 						entityplayer,
 						world);
 				break;
