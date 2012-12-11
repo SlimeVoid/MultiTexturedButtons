@@ -57,7 +57,6 @@ public class MTBCore {
 				}
 			}
 		}
-		ModLoader.addName(Block.pressurePlateStone, "Stone Pressure Plate");
 	}
 
 	public static void addItemNames() {
@@ -73,30 +72,25 @@ public class MTBCore {
 
 		GameRegistry.addRecipe(MTBItemButtons.oakPlank.me, new Object[] {
 				"X",
-				"X",
 				Character.valueOf('X'),
 				new ItemStack(Block.planks, 1, 0) });
 
 		GameRegistry.addRecipe(MTBItemButtons.sprucePlank.me, new Object[] {
-				"X",
 				"X",
 				Character.valueOf('X'),
 				new ItemStack(Block.planks, 1, 1) });
 
 		GameRegistry.addRecipe(MTBItemButtons.birchPlank.me, new Object[] {
 				"X",
-				"X",
 				Character.valueOf('X'),
 				new ItemStack(Block.planks, 1, 2) });
 
 		GameRegistry.addRecipe(MTBItemButtons.junglePlank.me, new Object[] {
 				"X",
-				"X",
 				Character.valueOf('X'),
 				new ItemStack(Block.planks, 1, 3) });
 
 		GameRegistry.addRecipe(MTBItemButtons.polishedStone.me, new Object[] {
-				"X",
 				"X",
 				Character.valueOf('X'),
 				Block.stoneSingleSlab });
@@ -169,7 +163,7 @@ public class MTBCore {
 		MTBItemButtons.gold.setTextureIndex(23);
 		MTBItemButtons.gold.setSensible(false);
 		MTBItemButtons.gold.setBlockHardness(1.5F);
-		MTBItemButtons.diamond.name = "Diamond-Lathered Button";
+		MTBItemButtons.diamond.name = "Diamond-Encrusted Button";
 		MTBItemButtons.diamond.stackID = 2;
 		MTBItemButtons.diamond.setTextureIndex(24);
 		MTBItemButtons.diamond.setSensible(false);
