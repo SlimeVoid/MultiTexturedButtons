@@ -103,7 +103,6 @@ public class BlockMTButton extends BlockButton implements IContainer {
 				x,
 				y,
 				z));
-		System.out.println("Sensible: " + sensible);
 		return sensible;
 	}
 
