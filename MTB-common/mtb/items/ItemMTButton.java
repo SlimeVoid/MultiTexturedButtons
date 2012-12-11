@@ -38,15 +38,6 @@ public class ItemMTButton extends ItemBlock {
 	}
 
 	/**
-	 * sets the array of strings to be used for name lookups from item damage to
-	 * metadata
-	 */
-	public ItemMTButton setBlockNames(String[] par1ArrayOfStr) {
-		this.buttonNames = par1ArrayOfStr;
-		return this;
-	}
-
-	/**
 	 * Gets an icon index based on an item's damage value
 	 */
 	public int getIconFromDamage(int par1) {
