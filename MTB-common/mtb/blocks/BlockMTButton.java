@@ -129,13 +129,4 @@ public class BlockMTButton extends BlockButton implements IContainer {
 			}
 		}
 	}
-
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		System.out.print(world.isRemote + "|" + world.getBlockTileEntity(
-				x,
-				y,
-				z));
-		super.updateTick(world, x, y, z, rand);
-	}
 }
