@@ -22,7 +22,7 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	Class mtButtonEntityClass;
 
 	public BlockMTButton(int blockId, Class buttonClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, String blockName) {
-		super(blockId, 0, false);
+		super(blockId, 0, true);
 		this.setBlockName(blockName);
 		this.isBlockContainer = true;
 		mtButtonEntityClass = buttonClass;
@@ -56,6 +56,33 @@ public class BlockMTButton extends BlockButton implements IContainer {
 				z,
 				this.createTileEntity(world, world.getBlockMetadata(x, y, z)));
 	}
+
+    /**
+     * Ticks the block if it's been scheduled
+     */
+    public void updateTick(World world, int x, int y, int z, Random par5Random)
+    {
+        if (!world.isRemote)
+        {
+            int var6 = world.getBlockMetadata(x, y, z);
+
+            if ((var6 & 8) != 0)
+            {
+                if (MTBItemButtons.getSensible(MTBInit.getDamageValue(world, x, y, z)))
+                {
+                    super.func_82535_o(world, x, y, z);
+                }
+                else
+                {
+                    world.setBlockMetadataWithNotify(x, y, z, var6 & 7);
+                    int var7 = var6 & 7;
+                    this.func_82536_d(world, x, y, z, var7);
+                    world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "random.click", 0.3F, 0.5F);
+                    world.markBlocksDirty(x, y, z, x, y, z);
+                }
+            }
+        }
+    }
 
 	@Override
 	public int getBlockTextureFromSideAndMetadata(int side, int meta) {
@@ -97,13 +124,16 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	}
 
 	@Override
-	protected boolean isSensible(World world, int x, int y, int z) {
-		boolean sensible = MTBItemButtons.getSensible(MTBInit.getDamageValue(
-				world,
-				x,
-				y,
-				z));
-		return sensible;
+	protected void func_82535_o(World world, int x, int y, int z) {
+		boolean sensible = MTBItemButtons.getSensible(
+				MTBInit.getDamageValue(
+						world,
+						x,
+						y,
+						z)
+				);
+		if (sensible) super.func_82535_o(world, x, y, z);
+		
 	}
 
 	@Override
