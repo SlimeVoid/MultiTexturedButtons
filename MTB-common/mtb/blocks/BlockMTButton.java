@@ -6,9 +6,12 @@ import java.util.Random;
 import mtb.core.MTBBlocks;
 import mtb.core.MTBInit;
 import mtb.core.MTBItemButtons;
+import mtb.core.MTBItemSensibleButtons;
+import net.minecraft.src.Block;
 import net.minecraft.src.BlockButton;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityItem;
+import net.minecraft.src.EnumGameType;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.StepSound;
@@ -21,8 +24,8 @@ import eurysmods.api.IContainer;
 public class BlockMTButton extends BlockButton implements IContainer {
 	Class mtButtonEntityClass;
 
-	public BlockMTButton(int blockId, Class buttonClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, String blockName) {
-		super(blockId, 0, true);
+	public BlockMTButton(int blockId, Class buttonClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, boolean sensible, String blockName) {
+		super(blockId, 0, sensible);
 		this.setBlockName(blockName);
 		this.isBlockContainer = true;
 		mtButtonEntityClass = buttonClass;
@@ -37,15 +40,24 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	}
 
 	public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
-		int texture = MTBItemButtons.getTexture(MTBInit.getDamageValue(
-				par1IBlockAccess,
-				par2,
-				par3,
-				par4));
+		int texture = -1;
+		if (par1IBlockAccess.getBlockId(par2, par3, par4) == MTBBlocks.mtButton.id) {
+			texture = MTBItemButtons.getTexture(MTBInit.getDamageValue(
+					par1IBlockAccess,
+					par2,
+					par3,
+					par4));
+		} else {
+			texture = MTBItemSensibleButtons.getTexture(MTBInit.getDamageValue(
+					par1IBlockAccess,
+					par2,
+					par3,
+					par4));
+		}
 		if (texture >= 0) {
 			return texture;
 		}
-		return 22;
+		return 1;
 	}
 
 	public void onBlockAdded(World world, int x, int y, int z) {
@@ -57,38 +69,13 @@ public class BlockMTButton extends BlockButton implements IContainer {
 				this.createTileEntity(world, world.getBlockMetadata(x, y, z)));
 	}
 
-    /**
-     * Ticks the block if it's been scheduled
-     */
-    public void updateTick(World world, int x, int y, int z, Random par5Random)
-    {
-        if (!world.isRemote)
-        {
-            int var6 = world.getBlockMetadata(x, y, z);
-
-            if ((var6 & 8) != 0)
-            {
-                if (MTBItemButtons.getSensible(MTBInit.getDamageValue(world, x, y, z)))
-                {
-                    super.func_82535_o(world, x, y, z);
-                }
-                else
-                {
-                    world.setBlockMetadataWithNotify(x, y, z, var6 & 7);
-                    int var7 = var6 & 7;
-                    this.func_82536_d(world, x, y, z, var7);
-                    world.playSoundEffect(x + 0.5D, y + 0.5D, z + 0.5D, "random.click", 0.3F, 0.5F);
-                    world.markBlocksDirty(x, y, z, x, y, z);
-                }
-            }
-        }
-    }
-
 	@Override
 	public int getBlockTextureFromSideAndMetadata(int side, int meta) {
-		return MTBInit.MTB.getProxy().getBlockTextureFromSideAndMetadata(
-				side,
-				meta);
+		if (this.blockID == MTBBlocks.mtButton.id) {
+			return MTBItemButtons.getTexture(meta);
+		} else {
+			return MTBItemSensibleButtons.getTexture(meta);
+		}
 	}
 
 	@Override
@@ -110,30 +97,25 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	 */
 	@Override
 	public void breakBlock(World world, int i, int j, int k, int a, int b) {
-		ItemStack itemstack = new ItemStack(
-				MTBBlocks.mtButton.me,
+		if (world.getWorldInfo().getGameType() != EnumGameType.CREATIVE) {
+			Block block;
+			if (world.getBlockId(i, j, k) == MTBBlocks.mtButton.id) {
+				block = MTBBlocks.mtButton.me;
+			} else {
+				block = MTBBlocks.mtSensibleButton.me;
+			}
+			ItemStack itemstack = new ItemStack(
+					block,
 					1,
 					MTBInit.getDamageValue(world, i, j, k));
-		EntityItem entityitem = new EntityItem(world, i, j, k, new ItemStack(
-				itemstack.itemID,
-					1,
-					itemstack.getItemDamage()));
-		world.spawnEntityInWorld(entityitem);
+			EntityItem entityitem = new EntityItem(world, i, j, k, new ItemStack(
+					itemstack.itemID,
+						1,
+						itemstack.getItemDamage()));
+			world.spawnEntityInWorld(entityitem);
+		}
 		super.breakBlock(world, i, j, k, a, b);
 		world.removeBlockTileEntity(i, j, k);
-	}
-
-	@Override
-	protected void func_82535_o(World world, int x, int y, int z) {
-		boolean sensible = MTBItemButtons.getSensible(
-				MTBInit.getDamageValue(
-						world,
-						x,
-						y,
-						z)
-				);
-		if (sensible) super.func_82535_o(world, x, y, z);
-		
 	}
 
 	@Override
@@ -143,19 +125,33 @@ public class BlockMTButton extends BlockButton implements IContainer {
 
 	@Override
 	public float getBlockHardness(World world, int x, int y, int z) {
-		return MTBItemButtons.getHardness(MTBInit
-				.getDamageValue(world, x, y, z));
+		if (world.getBlockId(x, y, z) == MTBBlocks.mtButton.id) {
+			return MTBItemButtons.getHardness(MTBInit
+					.getDamageValue(world, x, y, z));
+		} else {
+			return MTBItemSensibleButtons.getHardness(MTBInit
+					.getDamageValue(world, x, y, z));
+		}
 	}
 
 	@SideOnly(Side.CLIENT)
+	
 	/**
 	 * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
 	 */
 	@Override
 	public void getSubBlocks(int blockId, CreativeTabs creativeTabs, List blockList) {
-		for (MTBItemButtons button : MTBItemButtons.values()) {
-			if (button.stackID > 1) {
-				blockList.add(new ItemStack(blockId, 1, button.stackID));
+		if (blockId == MTBBlocks.mtButton.id) {
+			for (MTBItemButtons button : MTBItemButtons.values()) {
+				if (button.stackID >= 0) {
+					blockList.add(new ItemStack(blockId, 1, button.stackID));
+				}
+			}
+		} else if (blockId == MTBBlocks.mtSensibleButton.id) {
+			for (MTBItemSensibleButtons button : MTBItemSensibleButtons.values()) {
+				if (button.stackID >= 0) {
+					blockList.add(new ItemStack(blockId, 1, button.stackID));
+				}
 			}
 		}
 	}

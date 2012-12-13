@@ -2,6 +2,7 @@ package mtb.items;
 
 import mtb.core.MTBBlocks;
 import mtb.core.MTBItemButtons;
+import mtb.core.MTBItemSensibleButtons;
 import mtb.tileentities.TileEntityMTButton;
 import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
@@ -11,13 +12,23 @@ import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
 
 public class ItemMTButton extends ItemBlock {
-	private String[] buttonNames = MTBItemButtons.getButtonNames();
-
+	private final String[] buttonNames;
 	private final Block blockRef;
 
 	public ItemMTButton(int i) {
 		super(i);
-		this.blockRef = MTBBlocks.mtButton.me;
+		System.out.println("BlockID: " + i);
+		if (i == (MTBBlocks.mtButton.id - 256)) {
+			this.blockRef =  MTBBlocks.mtButton.me;
+			this.buttonNames = MTBItemButtons.getButtonNames();
+		} else {
+			this.blockRef =  MTBBlocks.mtSensibleButton.me;
+			this.buttonNames = MTBItemSensibleButtons.getButtonNames();
+		}
+		System.out.println(this.buttonNames.length);
+		for (int j = 0; j < this.buttonNames.length; j++) {
+			System.out.println("Button: " + this.buttonNames[j]);
+		}
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 		this.setNoRepair();
@@ -68,7 +79,7 @@ public class ItemMTButton extends ItemBlock {
 			break;
 		}
 
-		if (itemstack.stackSize == 0 || !entityplayer.func_82247_a(
+		if (itemstack.stackSize == 0 || !entityplayer.canPlayerEdit(
 				i,
 				j,
 				k,

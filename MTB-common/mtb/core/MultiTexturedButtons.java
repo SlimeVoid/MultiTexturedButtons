@@ -15,7 +15,7 @@ import eurysmods.api.ICommonProxy;
 @Mod(
 		modid = "MultiTexturedButtons",
 		name = "Multi-Textured Buttons",
-		dependencies = "after:EurysCore",
+		dependencies = "after:EurysCore,EurysCore_CoreMod;",
 		version = "2.0.0.0")
 @NetworkMod(
 		clientSideRequired = true,

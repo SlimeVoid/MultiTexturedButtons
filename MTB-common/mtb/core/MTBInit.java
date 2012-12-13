@@ -35,9 +35,11 @@ public class MTBInit {
 	public static void load() {
 		EurysCore.console(MTB.getModName(), "Removing Recipies...");
 		RecipeRemover.registerItemRecipeToRemove(Block.woodenButton);
+		RecipeRemover.registerItemRecipeToRemove(Block.stoneButton);
 		RecipeRemover.removeCrafting();
 		EurysCore.console(MTB.getModName(), "Removing Blocks...");
 		BlockRemover.removeVanillaBlock(Block.woodenButton);
+		BlockRemover.removeVanillaBlock(Block.stoneButton);
 		EurysCore.console(MTB.getModName(), "Registering items...");
 		MTBCore.addItems();
 		EurysCore.console(MTB.getModName(), "Registering blocks...");
