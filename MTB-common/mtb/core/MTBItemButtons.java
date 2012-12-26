@@ -1,6 +1,6 @@
 package mtb.core;
 
-import net.minecraft.src.ItemStack;
+import net.minecraft.item.ItemStack;
 
 public enum MTBItemButtons {
 	iron,

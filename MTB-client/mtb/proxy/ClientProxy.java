@@ -4,11 +4,11 @@ import mtb.core.MTBInit;
 import mtb.core.MTBItemButtons;
 import mtb.network.ClientPacketHandler;
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.src.ModLoader;
-import net.minecraft.src.TileEntity;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.tileentity.TileEntity;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import eurysmods.api.IPacketHandling;
 
 public class ClientProxy extends CommonProxy {

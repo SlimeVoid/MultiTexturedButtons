@@ -1,9 +1,9 @@
 package mtb.tileentities;
 
 import mtb.network.packets.PacketUpdateMTButton;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.Packet;
-import net.minecraft.src.World;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.world.World;
 import eurysmods.network.packets.core.PacketUpdate;
 import eurysmods.tileentities.TileEntityMT;
 
@@ -30,10 +30,12 @@ public class TileEntityMTButton extends TileEntityMT {
 		this.setSensible(nbttagcompound.getBoolean("sensible"));
 	}
 
+	@Override
 	public Packet getDescriptionPacket() {
 		return getUpdatePacket();
 	}
 
+	@Override
 	public Packet getUpdatePacket() {
 		return new PacketUpdateMTButton(this).getPacket();
 	}

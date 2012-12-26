@@ -7,23 +7,35 @@ import mtb.core.MTBBlocks;
 import mtb.core.MTBInit;
 import mtb.core.MTBItemButtons;
 import mtb.core.MTBItemSensibleButtons;
-import net.minecraft.src.Block;
-import net.minecraft.src.BlockButton;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.EntityItem;
-import net.minecraft.src.EnumGameType;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.StepSound;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockButton;
+import net.minecraft.block.StepSound;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.EnumGameType;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import eurysmods.api.IContainer;
 
 public class BlockMTButton extends BlockButton implements IContainer {
 	Class mtButtonEntityClass;
 
+	/**
+	 * The Multi-Textured Button Class
+	 * 
+	 * @param blockId id of the block
+	 * @param buttonClass tileentity associated with the block
+	 * @param hardness default hardness
+	 * @param sound stepping sound to use
+	 * @param disableStats should disable stats?
+	 * @param requiresSelfNotify requires the block to notify self?
+	 * @param sensible is sensitive to arrows
+	 * @param blockName the given name of the block 
+	 */
 	public BlockMTButton(int blockId, Class buttonClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, boolean sensible, String blockName) {
 		super(blockId, 0, sensible);
 		this.setBlockName(blockName);
@@ -39,20 +51,21 @@ public class BlockMTButton extends BlockButton implements IContainer {
 		}
 	}
 
-	public int getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
+	@Override
+	public int getBlockTexture(IBlockAccess blockaccess, int x, int y, int z, int side) {
 		int texture = -1;
-		if (par1IBlockAccess.getBlockId(par2, par3, par4) == MTBBlocks.mtButton.id) {
+		if (blockaccess.getBlockId(x, y, z) == MTBBlocks.mtButton.id) {
 			texture = MTBItemButtons.getTexture(MTBInit.getDamageValue(
-					par1IBlockAccess,
-					par2,
-					par3,
-					par4));
+					blockaccess,
+					x,
+					y,
+					z));
 		} else {
 			texture = MTBItemSensibleButtons.getTexture(MTBInit.getDamageValue(
-					par1IBlockAccess,
-					par2,
-					par3,
-					par4));
+					blockaccess,
+					x,
+					y,
+					z));
 		}
 		if (texture >= 0) {
 			return texture;
@@ -60,6 +73,7 @@ public class BlockMTButton extends BlockButton implements IContainer {
 		return 1;
 	}
 
+	@Override
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);
 		world.setBlockTileEntity(
@@ -79,11 +93,11 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World par1World) {
+	public TileEntity createNewTileEntity(World world) {
 		try {
 			return (TileEntity) this.mtButtonEntityClass.newInstance();
-		} catch (Exception var3) {
-			throw new RuntimeException(var3);
+		} catch (Exception exception) {
+			throw new RuntimeException(exception);
 		}
 	}
 
@@ -92,9 +106,6 @@ public class BlockMTButton extends BlockButton implements IContainer {
 		return createNewTileEntity(world);
 	}
 
-	/**
-	 * Called whenever the block is removed.
-	 */
 	@Override
 	public void breakBlock(World world, int i, int j, int k, int a, int b) {
 		if (world.getWorldInfo().getGameType() != EnumGameType.CREATIVE) {
@@ -135,7 +146,6 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	}
 
 	@SideOnly(Side.CLIENT)
-	
 	/**
 	 * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
 	 */

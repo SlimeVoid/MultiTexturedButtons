@@ -6,13 +6,13 @@ import java.io.DataInputStream;
 import mtb.core.MTBInit;
 import mtb.network.ServerPacketHandler;
 import mtb.network.packets.PacketUpdateMTButton;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.INetworkManager;
-import net.minecraft.src.NetHandler;
-import net.minecraft.src.Packet1Login;
-import net.minecraft.src.Packet250CustomPayload;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.NetHandler;
+import net.minecraft.network.packet.Packet1Login;
+import net.minecraft.network.packet.Packet250CustomPayload;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import cpw.mods.fml.common.network.Player;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.IPacketHandling;
@@ -29,9 +29,11 @@ public class CommonProxy implements ICommonProxy {
 
 	}
 
+	@Override
 	public void displayTileEntityGui(EntityPlayer entityplayer, TileEntity tileentity) {
 	}
 
+	@Override
 	public String getMinecraftDir() {
 		return "./";
 	}
@@ -60,6 +62,7 @@ public class CommonProxy implements ICommonProxy {
 		return 0;
 	}
 
+	@Override
 	public int getBlockTextureFromMetadata(int i) {
 		return 0;
 	}
@@ -125,5 +128,11 @@ public class CommonProxy implements ICommonProxy {
 	public void registerTickHandler() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void preInit() {
+		// TODO Auto-generated method stub
+		
 	}
 }

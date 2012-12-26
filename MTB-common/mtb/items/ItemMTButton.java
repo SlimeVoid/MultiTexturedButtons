@@ -4,12 +4,12 @@ import mtb.core.MTBBlocks;
 import mtb.core.MTBItemButtons;
 import mtb.core.MTBItemSensibleButtons;
 import mtb.tileentities.TileEntityMTButton;
-import net.minecraft.src.Block;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemBlock;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class ItemMTButton extends ItemBlock {
 	private final String[] buttonNames;
@@ -50,6 +50,7 @@ public class ItemMTButton extends ItemBlock {
 	/**
 	 * Gets an icon index based on an item's damage value
 	 */
+	@Override
 	public int getIconFromDamage(int par1) {
 		return this.blockRef.getBlockTextureFromSideAndMetadata(0, par1);
 	}
