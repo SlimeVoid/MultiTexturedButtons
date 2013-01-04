@@ -187,32 +187,26 @@ public class MTBCore {
 		MTBItemButtons.smoothStone.name = "Smooth Stone Button";
 		MTBItemButtons.smoothStone.stackID = 0;
 		MTBItemButtons.smoothStone.setTextureIndex(1);
-		MTBItemButtons.smoothStone.setSensible(false);
 		MTBItemButtons.smoothStone.setBlockHardness(0.8F);
 		MTBItemButtons.polishedStone.name = "Polished Stone Button";
 		MTBItemButtons.polishedStone.stackID = 1;
 		MTBItemButtons.polishedStone.setTextureIndex(6);
-		MTBItemButtons.polishedStone.setSensible(false);
 		MTBItemButtons.polishedStone.setBlockHardness(1.0F);
 		MTBItemButtons.cobbleStone.name = "Cobblestone Button";
 		MTBItemButtons.cobbleStone.stackID = 2;
 		MTBItemButtons.cobbleStone.setTextureIndex(16);
-		MTBItemButtons.cobbleStone.setSensible(false);
 		MTBItemButtons.cobbleStone.setBlockHardness(1.0F);
 		MTBItemButtons.iron.name = "Iron-Clad Button";
 		MTBItemButtons.iron.stackID = 3;
 		MTBItemButtons.iron.setTextureIndex(22);
-		MTBItemButtons.iron.setSensible(false);
 		MTBItemButtons.iron.setBlockHardness(2.5F);
 		MTBItemButtons.gold.name = "Gold-Plated Button";
 		MTBItemButtons.gold.stackID = 4;
 		MTBItemButtons.gold.setTextureIndex(23);
-		MTBItemButtons.gold.setSensible(false);
 		MTBItemButtons.gold.setBlockHardness(1.5F);
 		MTBItemButtons.diamond.name = "Diamond-Encrusted Button";
 		MTBItemButtons.diamond.stackID = 5;
 		MTBItemButtons.diamond.setTextureIndex(24);
-		MTBItemButtons.diamond.setSensible(false);
 		MTBItemButtons.diamond.setBlockHardness(2.5F);
 		
 	}

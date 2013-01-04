@@ -29,13 +29,12 @@ public class MultiTexturedButtons {
 			serverSide = "eurymachus.mtb.proxy.CommonProxy")
 	public static ICommonProxy proxy;
 
-	@Init
-	public void MultiTexturedButtonsInit(FMLInitializationEvent event) {
-
-	}
-
 	@PreInit
 	public void MultiTexturedButtonsPreInit(FMLPreInitializationEvent event) {
+	}
+
+	@Init
+	public void MultiTexturedButtonsInit(FMLInitializationEvent event) {
 		MTBInit.initialize(proxy);
 	}
 

@@ -14,7 +14,6 @@ public enum MTBItemButtons {
 	public int stackID;
 	public String name;
 	private int textureIndex;
-	private boolean sensible;
 	private float hardness;
 
 	public static ItemStack getStack(int itemDamage) {
@@ -35,15 +34,6 @@ public enum MTBItemButtons {
 		return -1;
 	}
 
-	public static boolean getSensible(int itemDamage) {
-		for (MTBItemButtons itemstack : MTBItemButtons.values()) {
-			if (itemstack != null && itemstack.stackID == itemDamage) {
-				return itemstack.sensible;
-			}
-		}
-		return false;
-	}
-
 	public static float getHardness(int itemDamage) {
 		for (MTBItemButtons itemstack : MTBItemButtons.values()) {
 			if (itemstack != null && itemstack.stackID == itemDamage) {
@@ -55,10 +45,6 @@ public enum MTBItemButtons {
 
 	public void setTextureIndex(int textureIndex) {
 		this.textureIndex = textureIndex;
-	}
-
-	public void setSensible(boolean sensible) {
-		this.sensible = sensible;
 	}
 
 	public void setBlockHardness(float hardness) {

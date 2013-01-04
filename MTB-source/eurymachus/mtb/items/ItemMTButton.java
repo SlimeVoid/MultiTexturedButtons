@@ -17,17 +17,12 @@ public class ItemMTButton extends ItemBlock {
 
 	public ItemMTButton(int i) {
 		super(i);
-		System.out.println("BlockID: " + i);
 		if (i == (MTBBlocks.mtButton.id - 256)) {
 			this.blockRef =  MTBBlocks.mtButton.me;
 			this.buttonNames = MTBItemButtons.getButtonNames();
 		} else {
 			this.blockRef =  MTBBlocks.mtSensibleButton.me;
 			this.buttonNames = MTBItemSensibleButtons.getButtonNames();
-		}
-		System.out.println(this.buttonNames.length);
-		for (int j = 0; j < this.buttonNames.length; j++) {
-			System.out.println("Button: " + this.buttonNames[j]);
 		}
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
@@ -118,8 +113,6 @@ public class ItemMTButton extends ItemBlock {
 						TileEntityMTButton tileentitymtbutton = (TileEntityMTButton) tileentity;
 						tileentitymtbutton.setTextureValue(itemstack
 								.getItemDamage());
-						tileentitymtbutton.setSensible(MTBItemButtons
-								.getSensible(itemstack.getItemDamage()));
 						tileentitymtbutton.onInventoryChanged();
 					}
 				}
