@@ -1,9 +1,9 @@
-package mtb.items;
+package eurymachus.mtb.items;
 
-import mtb.core.MTBBlocks;
-import mtb.core.MTBItemButtons;
-import mtb.core.MTBItemSensibleButtons;
-import mtb.tileentities.TileEntityMTButton;
+import eurymachus.mtb.core.MTBBlocks;
+import eurymachus.mtb.core.MTBItemButtons;
+import eurymachus.mtb.core.MTBItemSensibleButtons;
+import eurymachus.mtb.tileentities.TileEntityMTButton;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
@@ -97,7 +97,7 @@ public class ItemMTButton extends ItemBlock {
 				l,
 				entityplayer)) {
 			int meta = this.getMetadata(itemstack.getItemDamage());
-			int data = button.onBlockPlaced(world, i, j, k, l, a, b, c, meta);
+			int data = button.func_85104_a(world, i, j, k, l, a, b, c, meta); /*onBlockPlaced*/
 			if (this.placeBlockAt(
 					itemstack,
 					entityplayer,

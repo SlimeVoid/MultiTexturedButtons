@@ -1,12 +1,14 @@
-package mtb.core;
+package eurymachus.mtb.core;
 
 import net.minecraft.item.ItemStack;
 
-public enum MTBItemSensibleButtons {
-	oakPlank,
-	sprucePlank,
-	birchPlank,
-	junglePlank;
+public enum MTBItemButtons {
+	iron,
+	gold,
+	diamond,
+	polishedStone,
+	cobbleStone,
+	smoothStone;
 
 	public ItemStack me;
 	public int stackID;
@@ -16,7 +18,7 @@ public enum MTBItemSensibleButtons {
 	private float hardness;
 
 	public static ItemStack getStack(int itemDamage) {
-		for (MTBItemSensibleButtons itemstack : MTBItemSensibleButtons.values()) {
+		for (MTBItemButtons itemstack : MTBItemButtons.values()) {
 			if (itemstack != null && itemstack.stackID == itemDamage) {
 				return itemstack.me;
 			}
@@ -25,7 +27,7 @@ public enum MTBItemSensibleButtons {
 	}
 
 	public static int getTexture(int itemDamage) {
-		for (MTBItemSensibleButtons itemstack : MTBItemSensibleButtons.values()) {
+		for (MTBItemButtons itemstack : MTBItemButtons.values()) {
 			if (itemstack != null && itemstack.stackID == itemDamage) {
 				return itemstack.textureIndex;
 			}
@@ -34,7 +36,7 @@ public enum MTBItemSensibleButtons {
 	}
 
 	public static boolean getSensible(int itemDamage) {
-		for (MTBItemSensibleButtons itemstack : MTBItemSensibleButtons.values()) {
+		for (MTBItemButtons itemstack : MTBItemButtons.values()) {
 			if (itemstack != null && itemstack.stackID == itemDamage) {
 				return itemstack.sensible;
 			}
@@ -43,7 +45,7 @@ public enum MTBItemSensibleButtons {
 	}
 
 	public static float getHardness(int itemDamage) {
-		for (MTBItemSensibleButtons itemstack : MTBItemSensibleButtons.values()) {
+		for (MTBItemButtons itemstack : MTBItemButtons.values()) {
 			if (itemstack != null && itemstack.stackID == itemDamage) {
 				return itemstack.hardness;
 			}
@@ -64,9 +66,9 @@ public enum MTBItemSensibleButtons {
 	}
 
 	public static String[] getButtonNames() {
-		String[] names = new String[MTBItemSensibleButtons.values().length];
+		String[] names = new String[MTBItemButtons.values().length];
 		int i = 0;
-		for (MTBItemSensibleButtons itemstack : MTBItemSensibleButtons.values()) {
+		for (MTBItemButtons itemstack : MTBItemButtons.values()) {
 			if (itemstack != null && itemstack.name != null && !itemstack.name
 					.isEmpty()) {
 				names[i] = itemstack.name;

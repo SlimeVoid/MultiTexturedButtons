@@ -1,6 +1,5 @@
-package mtb.network;
+package eurymachus.mtb.network;
 
-import mtb.core.MTBInit;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.NetLoginHandler;
 import net.minecraft.network.packet.NetHandler;
@@ -8,6 +7,7 @@ import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.server.MinecraftServer;
 import cpw.mods.fml.common.network.Player;
+import eurymachus.mtb.core.MTBInit;
 import eurysmods.api.INetworkConnection;
 
 public class MTBConnection implements INetworkConnection {

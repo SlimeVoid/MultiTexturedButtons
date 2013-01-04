@@ -1,14 +1,15 @@
-package mtb.proxy;
+package eurymachus.mtb.client.proxy;
 
-import mtb.core.MTBInit;
-import mtb.core.MTBItemButtons;
-import mtb.network.ClientPacketHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import eurymachus.mtb.client.network.ClientPacketHandler;
+import eurymachus.mtb.core.MTBInit;
+import eurymachus.mtb.core.MTBItemButtons;
+import eurymachus.mtb.proxy.CommonProxy;
 import eurysmods.api.IPacketHandling;
 
 public class ClientProxy extends CommonProxy {

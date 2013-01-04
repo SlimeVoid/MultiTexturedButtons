@@ -1,11 +1,8 @@
-package mtb.proxy;
+package eurymachus.mtb.proxy;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 
-import mtb.core.MTBInit;
-import mtb.network.ServerPacketHandler;
-import mtb.network.packets.PacketUpdateMTButton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetworkManager;
 import net.minecraft.network.packet.NetHandler;
@@ -14,6 +11,9 @@ import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.Player;
+import eurymachus.mtb.core.MTBInit;
+import eurymachus.mtb.network.ServerPacketHandler;
+import eurymachus.mtb.network.packets.PacketUpdateMTButton;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.IPacketHandling;
 import eurysmods.network.packets.core.PacketIds;

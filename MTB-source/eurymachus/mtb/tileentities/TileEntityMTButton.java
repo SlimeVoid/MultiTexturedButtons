@@ -1,9 +1,9 @@
-package mtb.tileentities;
+package eurymachus.mtb.tileentities;
 
-import mtb.network.packets.PacketUpdateMTButton;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.world.World;
+import eurymachus.mtb.network.packets.PacketUpdateMTButton;
 import eurysmods.network.packets.core.PacketUpdate;
 import eurysmods.tileentities.TileEntityMT;
 

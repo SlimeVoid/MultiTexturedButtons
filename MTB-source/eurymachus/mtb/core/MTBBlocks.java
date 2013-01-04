@@ -1,4 +1,4 @@
-package mtb.core;
+package eurymachus.mtb.core;
 
 import net.minecraft.block.Block;
 

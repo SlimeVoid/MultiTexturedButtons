@@ -1,12 +1,12 @@
-package mtb.core;
+package eurymachus.mtb.core;
 
 import java.io.File;
 
-import mtb.tileentities.TileEntityMTButton;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.Configuration;
+import eurymachus.mtb.tileentities.TileEntityMTButton;
 import eurysmods.api.ICommonProxy;
 import eurysmods.api.ICore;
 import eurysmods.core.BlockRemover;

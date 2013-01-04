@@ -1,7 +1,7 @@
-package mtb.network.packets;
+package eurymachus.mtb.network.packets;
 
-import mtb.core.MTBInit;
-import mtb.tileentities.TileEntityMTButton;
+import eurymachus.mtb.core.MTBInit;
+import eurymachus.mtb.tileentities.TileEntityMTButton;
 import eurysmods.network.packets.core.PacketPayload;
 import eurysmods.network.packets.core.PacketTileEntityMT;
 

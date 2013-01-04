@@ -1,6 +1,5 @@
-package mtb.core;
+package eurymachus.mtb.core;
 
-import mtb.network.MTBConnection;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -10,12 +9,13 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import eurymachus.mtb.network.MTBConnection;
 import eurysmods.api.ICommonProxy;
 
 @Mod(
 		modid = "MultiTexturedButtons",
 		name = "Multi-Textured Buttons",
-		dependencies = "after:EurysCore,EurysCore_CoreMod;",
+		dependencies = "after:EurysCore;",
 		version = "2.0.0.0")
 @NetworkMod(
 		clientSideRequired = true,
@@ -25,8 +25,8 @@ import eurysmods.api.ICommonProxy;
 		connectionHandler = MTBConnection.class)
 public class MultiTexturedButtons {
 	@SidedProxy(
-			clientSide = "mtb.proxy.ClientProxy",
-			serverSide = "mtb.proxy.CommonProxy")
+			clientSide = "eurymachus.mtb.client.proxy.ClientProxy",
+			serverSide = "eurymachus.mtb.proxy.CommonProxy")
 	public static ICommonProxy proxy;
 
 	@Init
@@ -36,11 +36,10 @@ public class MultiTexturedButtons {
 
 	@PreInit
 	public void MultiTexturedButtonsPreInit(FMLPreInitializationEvent event) {
-
+		MTBInit.initialize(proxy);
 	}
 
 	@PostInit
 	public void MultiTexturedButtonsPostInit(FMLPostInitializationEvent event) {
-		MTBInit.initialize(proxy);
 	}
 }

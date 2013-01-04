@@ -1,10 +1,7 @@
-package mtb.core;
+package eurymachus.mtb.core;
 
 import java.io.File;
 
-import mtb.blocks.BlockMTButton;
-import mtb.items.ItemMTButton;
-import mtb.tileentities.TileEntityMTButton;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,6 +9,9 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.registry.GameRegistry;
+import eurymachus.mtb.blocks.BlockMTButton;
+import eurymachus.mtb.items.ItemMTButton;
+import eurymachus.mtb.tileentities.TileEntityMTButton;
 import eurysmods.api.ICommonProxy;
 
 public class MTBCore {

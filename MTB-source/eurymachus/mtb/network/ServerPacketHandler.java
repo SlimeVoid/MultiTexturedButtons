@@ -1,9 +1,9 @@
-package mtb.network;
+package eurymachus.mtb.network;
 
-import mtb.tileentities.TileEntityMTButton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import eurymachus.mtb.tileentities.TileEntityMTButton;
 import eurysmods.api.IPacketHandling;
 import eurysmods.network.packets.core.PacketTileEntity;
 import eurysmods.network.packets.core.PacketUpdate;
