@@ -35,10 +35,10 @@ public class MultiTexturedButtons {
 
 	@Init
 	public void MultiTexturedButtonsInit(FMLInitializationEvent event) {
-		MTBInit.initialize(proxy);
 	}
 
 	@PostInit
 	public void MultiTexturedButtonsPostInit(FMLPostInitializationEvent event) {
+		MTBInit.initialize(proxy);
 	}
 }

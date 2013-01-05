@@ -27,7 +27,6 @@ public class MTBCore {
 	}
 
 	public static void addItems() {
-		MTBBlocks.mtButton.id = configurationProperties();
 		MTBBlocks.mtButton.me = new BlockMTButton(
 				MTBBlocks.mtButton.id,
 					TileEntityMTButton.class,
@@ -58,11 +57,7 @@ public class MTBCore {
 	public static void registerBlocks() {
 		for (MTBBlocks block : MTBBlocks.values()) {
 			if (block != null && block.me != null) {
-				GameRegistry.registerBlock(block.me, ItemMTButton.class);
-				if (block.name != null) {
-					System.out.println("Button: " + block.me.blockID + " | Name: " + block.name);
-					ModLoader.addName(block.me, block.name);
-				}
+				GameRegistry.registerBlock(block.me, ItemMTButton.class, block.name);
 			}
 		}
 	}
@@ -170,12 +165,12 @@ public class MTBCore {
 		MTBBlocks.mtButton.id = Integer.parseInt(configuration.get(
 				Configuration.CATEGORY_BLOCK,
 				"mtButton",
-				77).value);
+				Block.stoneButton.blockID).value);
 		MTBBlocks.mtButton.name = "Multi-Textured Button";
 		MTBBlocks.mtSensibleButton.id = Integer.parseInt(configuration.get(
 				Configuration.CATEGORY_BLOCK,
 				"mtSensibleButton",
-				143).value);
+				Block.woodenButton.blockID).value);
 		MTBBlocks.mtSensibleButton.name = "Multi-Textured Sensible Button";
 		nonsensibleButtons();
 		sensibleButtons();

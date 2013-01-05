@@ -33,6 +33,7 @@ public class MTBInit {
 	}
 
 	public static void load() {
+		MTBCore.configurationProperties();
 		EurysCore.console(MTB.getModName(), "Removing Recipies...");
 		RecipeRemover.registerItemRecipeToRemove(Block.woodenButton);
 		RecipeRemover.registerItemRecipeToRemove(Block.stoneButton);
