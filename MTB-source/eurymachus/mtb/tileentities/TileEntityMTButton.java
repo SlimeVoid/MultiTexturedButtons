@@ -1,11 +1,11 @@
 package eurymachus.mtb.tileentities;
 
+import slimevoid.lib.network.PacketUpdate;
+import slimevoid.lib.tileentity.TileEntityMT;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.world.World;
 import eurymachus.mtb.network.packets.PacketUpdateMTButton;
-import eurysmods.network.packets.core.PacketUpdate;
-import eurysmods.tileentities.TileEntityMT;
 
 public class TileEntityMTButton extends TileEntityMT {
 	protected boolean isSensible;

@@ -2,17 +2,18 @@ package eurymachus.mtb.core;
 
 import java.io.File;
 
+import slimevoid.lib.ICommonProxy;
+import slimevoid.lib.ICore;
+import slimevoid.lib.core.BlockRemover;
+import slimevoid.lib.core.Core;
+import slimevoid.lib.core.SlimevoidCore;
+import slimevoid.lib.core.RecipeRemover;
+
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.Configuration;
 import eurymachus.mtb.tileentities.TileEntityMTButton;
-import eurysmods.api.ICommonProxy;
-import eurysmods.api.ICore;
-import eurysmods.core.BlockRemover;
-import eurysmods.core.Core;
-import eurysmods.core.EurysCore;
-import eurysmods.core.RecipeRemover;
 
 public class MTBInit {
 	public static ICore MTB;
@@ -34,21 +35,21 @@ public class MTBInit {
 
 	public static void load() {
 		MTBCore.configurationProperties();
-		EurysCore.console(MTB.getModName(), "Removing Recipies...");
+		SlimevoidCore.console(MTB.getModName(), "Removing Recipies...");
 		RecipeRemover.registerItemRecipeToRemove(Block.woodenButton);
 		RecipeRemover.registerItemRecipeToRemove(Block.stoneButton);
 		RecipeRemover.removeCrafting();
-		EurysCore.console(MTB.getModName(), "Removing Blocks...");
+		SlimevoidCore.console(MTB.getModName(), "Removing Blocks...");
 		BlockRemover.removeVanillaBlock(Block.woodenButton);
 		BlockRemover.removeVanillaBlock(Block.stoneButton);
-		EurysCore.console(MTB.getModName(), "Registering items...");
+		SlimevoidCore.console(MTB.getModName(), "Registering items...");
 		MTBCore.addItems();
-		EurysCore.console(MTB.getModName(), "Registering blocks...");
+		SlimevoidCore.console(MTB.getModName(), "Registering blocks...");
 		MTBCore.registerBlocks();
 		MTB.getProxy().registerRenderInformation();
-		EurysCore.console(MTB.getModName(), "Naming items...");
+		SlimevoidCore.console(MTB.getModName(), "Naming items...");
 		MTBCore.addItemNames();
-		EurysCore.console(MTB.getModName(), "Registering recipes...");
+		SlimevoidCore.console(MTB.getModName(), "Registering recipes...");
 		MTBCore.addRecipes();
 	}
 

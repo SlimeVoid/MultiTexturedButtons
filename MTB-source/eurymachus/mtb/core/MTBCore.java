@@ -2,6 +2,8 @@ package eurymachus.mtb.core;
 
 import java.io.File;
 
+import slimevoid.lib.ICommonProxy;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,7 +14,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import eurymachus.mtb.blocks.BlockMTButton;
 import eurymachus.mtb.items.ItemMTButton;
 import eurymachus.mtb.tileentities.TileEntityMTButton;
-import eurysmods.api.ICommonProxy;
 
 public class MTBCore {
 	public static File configFile;

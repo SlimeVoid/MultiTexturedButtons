@@ -3,6 +3,8 @@ package eurymachus.mtb.blocks;
 import java.util.List;
 import java.util.Random;
 
+import slimevoid.lib.IContainer;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockButton;
 import net.minecraft.block.StepSound;
@@ -19,7 +21,6 @@ import eurymachus.mtb.core.MTBBlocks;
 import eurymachus.mtb.core.MTBInit;
 import eurymachus.mtb.core.MTBItemButtons;
 import eurymachus.mtb.core.MTBItemSensibleButtons;
-import eurysmods.api.IContainer;
 
 public class BlockMTButton extends BlockButton implements IContainer {
 	Class mtButtonEntityClass;

@@ -1,5 +1,6 @@
 package eurymachus.mtb.core;
 
+import slimevoid.lib.ICommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.PostInit;
@@ -10,7 +11,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import eurymachus.mtb.network.MTBConnection;
-import eurysmods.api.ICommonProxy;
 
 @Mod(
 		modid = "MultiTexturedButtons",

@@ -1,9 +1,9 @@
 package eurymachus.mtb.network.packets;
 
+import slimevoid.lib.network.PacketPayload;
+import slimevoid.lib.network.PacketTileEntityMT;
 import eurymachus.mtb.core.MTBInit;
 import eurymachus.mtb.tileentities.TileEntityMTButton;
-import eurysmods.network.packets.core.PacketPayload;
-import eurysmods.network.packets.core.PacketTileEntityMT;
 
 public class PacketUpdateMTButton extends PacketTileEntityMT {
 
