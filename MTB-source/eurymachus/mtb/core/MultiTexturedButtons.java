@@ -15,7 +15,7 @@ import eurymachus.mtb.network.MTBConnection;
 @Mod(
 		modid = "MultiTexturedButtons",
 		name = "Multi-Textured Buttons",
-		dependencies = "after:EurysCore;",
+		dependencies = "after:SlimevoidLib",
 		version = "2.0.0.0")
 @NetworkMod(
 		clientSideRequired = true,

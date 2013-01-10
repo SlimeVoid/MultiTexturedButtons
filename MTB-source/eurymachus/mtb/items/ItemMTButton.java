@@ -92,7 +92,7 @@ public class ItemMTButton extends ItemBlock {
 				l,
 				entityplayer)) {
 			int meta = this.getMetadata(itemstack.getItemDamage());
-			int data = button.func_85104_a(world, i, j, k, l, a, b, c, meta); /*onBlockPlaced*/
+			int data = button.onBlockPlaced(world, i, j, k, l, a, b, c, meta); /*onBlockPlaced*/
 			if (this.placeBlockAt(
 					itemstack,
 					entityplayer,
