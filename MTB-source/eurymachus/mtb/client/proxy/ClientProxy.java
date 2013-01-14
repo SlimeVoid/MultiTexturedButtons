@@ -1,10 +1,10 @@
 package eurymachus.mtb.client.proxy;
 
-import slimevoid.lib.IPacketHandling;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
+import slimevoid.lib.IPacketHandling;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import eurymachus.mtb.client.network.ClientPacketHandler;
