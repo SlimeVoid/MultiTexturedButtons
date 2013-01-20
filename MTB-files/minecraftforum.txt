@@ -1,0 +1,76 @@
+[center][url="http://www.minecraftforum.net/topic/1123291-123forgemlmp-eurys-multi-textured-mods-sspsmpbukkit/"][size=7][b]Eury's Multi-Textured Mods[/b][/size][/url][/center]
+[center][url="http://www.minecraftforum.net/topic/1123291-123forgemlmp-eurys-multi-textured-mods-sspsmpbukkit/"][size=7][b][size=5]Core Download Here[/size][/b][/size]
+
+[img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Mods_Thumb.png[/img][/url][/center]
+
+Hello Again! I trust you've already had the pleasure of using the other mod in this series [url="http://www.minecraftforum.net/topic/1030033-110forge-eurys-mods-multi-textured-signs-v21-cross-over-recipes-furnace-recipes-and-packet230modloadersspsmpbukkit/"]Multi-Textured Signs[/url]? Yes? Good stuff! There have been many occasions when building massive machines and factories and building etc. etc. etc.when one comes across a need to use Stone walls, but BAM! You place that stone button and it disappears into the background, enter...........
+
+[b][size=5]Eury's Multi-Textured Buttons v1.3[/size][/b]
+[size=3][b]Works just like an ordinary stone button except it looks much better[/b]
+[img]http://static.minecraftforum.net//public/style_emoticons/default/wink.png[/img][/size]
+
+[size=5][b]Please note that Multi-Textured Buttons is now packaged with all other mods on the main download page above.[/b][/size]
+
+[b][size=5]Installation: [url="http://adf.ly/7mmGm"]Client[/url][/size][/b]
+[spoiler] [b][size=3]Prerequisites[/size][/b]
+First you're going to need to download and install [b][size=2][url="http://minecraftforge.net/forum/"]Minecraft Forge[/url][/size][/b]
+
+Then the mod files to be placed in [b]%appdata%\.minecraft\mods\[/b]:
+[b][size=2]Multi-Textured Buttons v1.3 - Client|SSP/SMP[/size][/b] - Download from [b][url="http://adf.ly/7mmGm"]AdF.ly[/url][/b]
+[/spoiler]
+
+[b][size=5]Installation: [url="http://adf.ly/7mmHw"]Server[/url][/size][/b]
+[spoiler] [b][size=3]Prerequisites[/size][/b]
+For this you just need [b][size=2][url="http://minecraftforge.net/forum/"]Minecraft Forge[/url][/size][/b].
+Then the mod files to be placed in your server mods folder:
+[b][size=2]Multi-Textured Buttons v1.3 - Server|SMP[/size][/b] - Download from [b][url="http://adf.ly/7mmHw"]AdF.ly[/url][/b]
+[/spoiler]
+
+[b][size=5]Installation: [url="http://adf.ly/7mmIv"]Bukkit[/url][/size][/b]
+[spoiler] [b][size=3]Prerequisites[/size][/b]
+Visit [url="http://www.mcportcentral.co.za/index.php?board=3.0"][b]MC Port Central[/b][/url] for the latest 1.2.5 MCPC Ports Then the mod files to be extracted into your craftbukkit.jar:
+[b][size=2]Multi-Textured Buttons v1.3 - Bukkit|SMP[/size][/b] - Download from [b][url="http://adf.ly/7mmIv"]AdF.ly[/url][/b]
+[/spoiler]
+
+[b][size=3]Information:[/size][/b]
+[spoiler]Config File Auto Generated IDs as follows: [size=2][b]Button BlockID = 214[/b][/size]
+
+[b](All IDs are configurable in the config/MultiTexturedButtons.cfg)[/b] [/spoiler]
+[b][size=3]Changelog:[/size][/b]
+[spoiler]
+Version 1.3
+[spoiler][size=2] - MC 1.2.5 Update[/size] [size=2]- Port to Forge ModLoader[/size][/spoiler]
+Version 1.2
+[spoiler] [size=2]- MC 1.2.3 Update[/size] [size=2]- Fixed bug when destroying button would look like dirt particles[/size][/spoiler]
+Version 1.0
+[spoiler] [size=2]- Mod uploaded[/size][/spoiler]
+[/spoiler]
+
+[b][size=3]Recipes:[/size][/b]
+[spoiler]
+[img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Buttons-Recipe1.png[/img] [img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Buttons-Recipe2.png[/img] [img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Buttons-Recipe3.png[/img] [/spoiler]
+
+[b][size=3]Screenshot:[/size][/b] [spoiler] [img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Buttons1.png[/img] [img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Buttons2.png[/img] [img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Buttons3.png[/img] [img]http://i1160.photobucket.com/albums/q492/Eurymachus/Eurys%20Mods/Buttons4.png[/img] [/spoiler]
+
+[b][size=3]Older Versions[/size][/b]
+[spoiler]Minecraft v1.2.3
+[spoiler]
+[b][size=5]Installation: [url="http://adf.ly/70E3f"]Client[/url] v1.2[/size][/b]
+[b][size=5]Installation: [url="http://adf.ly/70E57"]Server[/url] v1.2[/size][/b]
+[b][size=5]Installation: [url="http://adf.ly/70E79"]Bukkit[/url] v1.2[/size][/b]
+[/spoiler]
+Minecraft v1.1
+[spoiler]
+[b][size=5]Installation: [url="http://adf.ly/6Rnhj"]Client[/url] v1.0[/size][/b]
+[b][size=5]Installation: [url="http://adf.ly/6Rnlf"]Server[/url] v1.0[/size][/b]
+[b][size=5]Installation: [url="http://adf.ly/6Rnn9"]Bukkit[/url] v1.0[/size][/b]
+[/spoiler]
+[/spoiler]
+
+[b][size=3]Planned features:[/size][/b]
+[spoiler] [size=3]- Additional button textures[/size] [/spoiler]
+
+I really hope you find them as useful as my friend and I do, it's just nice to have the choice sometimes.
+[size=2]Good luck and Notch Speed! [b]Eurymachus[/b][/size]
+
+[size=2]Copyright[/size] [spoiler] [size=1]This mod (plugin, a patch to Minecraft source, henceforth "Mod" or "The Mod"), by the terms of [url="http://www.minecraft.net/copyright.jsp"]http://www.minecraft.net/copyright.jsp[/url] is sole property of the Mod author Eurymachus, henceforth "Owner" or "The Owner". By default it may only be distributed on minecraftforums.net, mcmodcenter.net. It may only be mirrored or re-posted with advance written permission of the Owner. Electronic Mail is fine if you wait for a response. URL shorteners or other attempts to make money off The Owner's Mod are strictly forbidden without advance written permission. Copyright @ February, 16, 2012[/size] [/spoiler]

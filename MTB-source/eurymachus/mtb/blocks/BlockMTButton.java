@@ -3,18 +3,15 @@ package eurymachus.mtb.blocks;
 import java.util.List;
 import java.util.Random;
 
-import slimevoid.lib.IContainer;
-
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockButton;
 import net.minecraft.block.StepSound;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.EnumGameType;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import slimevoid.lib.IContainer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import eurymachus.mtb.core.MTBBlocks;
@@ -108,26 +105,15 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	}
 
 	@Override
-	public void breakBlock(World world, int i, int j, int k, int a, int b) {
-		if (world.getWorldInfo().getGameType() != EnumGameType.CREATIVE) {
-			Block block;
-			if (world.getBlockId(i, j, k) == MTBBlocks.mtButton.id) {
-				block = MTBBlocks.mtButton.me;
-			} else {
-				block = MTBBlocks.mtSensibleButton.me;
-			}
-			ItemStack itemstack = new ItemStack(
-					block,
-					1,
-					MTBInit.getDamageValue(world, i, j, k));
-			EntityItem entityitem = new EntityItem(world, i, j, k, new ItemStack(
-					itemstack.itemID,
-						1,
-						itemstack.getItemDamage()));
-			world.spawnEntityInWorld(entityitem);
-		}
-		super.breakBlock(world, i, j, k, a, b);
-		world.removeBlockTileEntity(i, j, k);
+	public void breakBlock(World world, int x, int y, int z, int a, int b) {
+		ItemStack itemstack = new ItemStack(
+				this,
+				1,
+				MTBInit.getDamageValue(world, x, y, z));
+		EntityItem entityitem = new EntityItem(world, x, y, z, itemstack);
+		world.spawnEntityInWorld(entityitem);
+		super.breakBlock(world, x, y, z, a, b);
+		world.removeBlockTileEntity(x, y, z);
 	}
 
 	@Override
