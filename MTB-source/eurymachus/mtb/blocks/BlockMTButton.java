@@ -23,7 +23,7 @@ import eurymachus.mtb.core.MTBItemButtons;
 import eurymachus.mtb.core.MTBItemSensibleButtons;
 
 public class BlockMTButton extends BlockButton implements IContainer {
-	Class mtButtonEntityClass;
+	Class<? extends TileEntity> mtButtonEntityClass;
 
 	/**
 	 * The Multi-Textured Button Class
@@ -37,7 +37,7 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	 * @param sensible is sensitive to arrows
 	 * @param blockName the given name of the block 
 	 */
-	public BlockMTButton(int blockId, Class buttonClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, boolean sensible, String blockName) {
+	public BlockMTButton(int blockId, Class<? extends TileEntity> buttonClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, boolean sensible, String blockName) {
 		super(blockId, 0, sensible);
 		this.setBlockName(blockName);
 		this.isBlockContainer = true;
@@ -96,7 +96,7 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	@Override
 	public TileEntity createNewTileEntity(World world) {
 		try {
-			return (TileEntity) this.mtButtonEntityClass.newInstance();
+			return this.mtButtonEntityClass.newInstance();
 		} catch (Exception exception) {
 			throw new RuntimeException(exception);
 		}
@@ -146,6 +146,7 @@ public class BlockMTButton extends BlockButton implements IContainer {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@SideOnly(Side.CLIENT)
 	/**
 	 * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)

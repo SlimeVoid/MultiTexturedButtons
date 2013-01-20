@@ -26,7 +26,5 @@ public class ServerPacketHandler implements IPacketHandling {
 
 	@Override
 	public void handlePacket(PacketUpdate packet, EntityPlayer entityplayer, World world) {
-		// TODO Auto-generated method stub
-
 	}
 }
