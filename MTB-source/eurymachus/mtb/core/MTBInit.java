@@ -8,9 +8,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.Configuration;
 import slimevoid.lib.ICommonProxy;
 import slimevoid.lib.ICore;
-import slimevoid.lib.core.BlockRemover;
+import slimevoid.lib.util.BlockRemover;
 import slimevoid.lib.core.Core;
-import slimevoid.lib.core.RecipeRemover;
+import slimevoid.lib.util.RecipeRemover;
 import slimevoid.lib.core.SlimevoidCore;
 import eurymachus.mtb.tileentities.TileEntityMTButton;
 
