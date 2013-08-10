@@ -6,15 +6,15 @@ import net.minecraft.network.packet.NetHandler;
 import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.server.MinecraftServer;
-import slimevoid.lib.INetworkConnection;
+import slimevoidlib.INetworkConnection;
 import cpw.mods.fml.common.network.Player;
-import eurymachus.mtb.core.MTBInit;
+import eurymachus.mtb.core.MultiTexturedButtons;
 
 public class MTBConnection implements INetworkConnection {
 
 	@Override
 	public void onPacketData(INetworkManager manager, Packet250CustomPayload packet, Player player) {
-		MTBInit.MTB.getProxy().onPacketData(manager, packet, player);
+		MultiTexturedButtons.proxy.onPacketData(manager, packet, player);
 	}
 
 	@Override

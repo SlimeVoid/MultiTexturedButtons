@@ -4,14 +4,17 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.BlockButton;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.StepSound;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import slimevoid.lib.IContainer;
+import slimevoidlib.IContainer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import eurymachus.mtb.core.MTBBlocks;
@@ -19,7 +22,9 @@ import eurymachus.mtb.core.MTBInit;
 import eurymachus.mtb.core.MTBItemButtons;
 import eurymachus.mtb.core.MTBItemSensibleButtons;
 
-public class BlockMTButton extends BlockButton implements IContainer {
+public class BlockMTButton extends BlockButton implements ITileEntityProvider {
+	
+	private Icon[] iconList;
 	Class<? extends TileEntity> mtButtonEntityClass;
 
 	/**
@@ -35,8 +40,8 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	 * @param blockName the given name of the block 
 	 */
 	public BlockMTButton(int blockId, Class<? extends TileEntity> buttonClass, float hardness, StepSound sound, boolean disableStats, boolean requiresSelfNotify, boolean sensible, String blockName) {
-		super(blockId, 0, sensible);
-		this.setBlockName(blockName);
+		super(blockId, sensible);
+		this.setUnlocalizedName(blockName);
 		this.isBlockContainer = true;
 		mtButtonEntityClass = buttonClass;
 		setHardness(hardness);
@@ -45,30 +50,40 @@ public class BlockMTButton extends BlockButton implements IContainer {
 			disableStats();
 		}
 		if (requiresSelfNotify) {
-			setRequiresSelfNotify();
+			//setRequiresSelfNotify();
+		}
+	}
+	@Override
+	public void registerIcons(IconRegister iconRegister) {
+		if (this.blockID == MTBBlocks.mtButton.id) {
+			this.iconList = new Icon[MTBItemButtons.values().length];
+			for (int i = 0; i < iconList.length; i++) {
+				this.iconList[i] = iconRegister.registerIcon(MTBItemButtons.getTexture(i));
+			}
+		} else {
+			this.iconList = new Icon[MTBItemSensibleButtons.values().length];
+			for (int i = 0; i < iconList.length; i++) {
+				this.iconList[i] = iconRegister.registerIcon(MTBItemSensibleButtons.getTexture(i));
+			}
 		}
 	}
 
 	@Override
-	public int getBlockTexture(IBlockAccess blockaccess, int x, int y, int z, int side) {
-		int texture = -1;
-		if (blockaccess.getBlockId(x, y, z) == MTBBlocks.mtButton.id) {
-			texture = MTBItemButtons.getTexture(MTBInit.getDamageValue(
-					blockaccess,
+	public Icon getBlockTexture(IBlockAccess blockAccess, int x, int y, int z, int side) {
+		return this.iconList[MTBInit.getDamageValue(blockAccess, x, y, z)];
+		/*if (blockaccess.getBlockId(x, y, z) == MTBBlocks.mtButton.id) {
+			return MTBItemButtons.getTexture(MTBInit.getDamageValue(
+					blockAccess,
 					x,
 					y,
 					z));
 		} else {
-			texture = MTBItemSensibleButtons.getTexture(MTBInit.getDamageValue(
-					blockaccess,
+			return MTBItemSensibleButtons.getTexture(MTBInit.getDamageValue(
+					blockAccess,
 					x,
 					y,
 					z));
-		}
-		if (texture >= 0) {
-			return texture;
-		}
-		return 1;
+		}*/
 	}
 
 	@Override
@@ -82,12 +97,13 @@ public class BlockMTButton extends BlockButton implements IContainer {
 	}
 
 	@Override
-	public int getBlockTextureFromSideAndMetadata(int side, int meta) {
-		if (this.blockID == MTBBlocks.mtButton.id) {
+	public Icon getIcon(int side, int meta) {
+		return this.iconList[meta];
+		/*if (this.blockID == MTBBlocks.mtButton.id) {
 			return MTBItemButtons.getTexture(meta);
 		} else {
 			return MTBItemSensibleButtons.getTexture(meta);
-		}
+		}*/
 	}
 
 	@Override

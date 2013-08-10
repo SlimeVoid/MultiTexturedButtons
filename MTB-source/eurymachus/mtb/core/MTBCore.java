@@ -6,10 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
-import slimevoid.lib.ICommonProxy;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import eurymachus.mtb.blocks.BlockMTButton;
 import eurymachus.mtb.items.ItemMTButton;
 import eurymachus.mtb.tileentities.TileEntityMTButton;
@@ -19,11 +18,11 @@ public class MTBCore {
 	public static Configuration configuration;
 	public static boolean initialized = false;
 
-	public static void initialize(ICommonProxy proxy) {
+	public static void initialize() {
 		if (initialized)
 			return;
 		initialized = true;
-		MTBInit.initialize(proxy);
+		MTBInit.initialize();
 	}
 
 	public static void addItems() {
@@ -66,13 +65,13 @@ public class MTBCore {
 		for (MTBItemButtons button : MTBItemButtons.values()) {
 			if (button != null && button.me != null && button.name != null && !button.name
 					.isEmpty()) {
-				ModLoader.addName(button.me, button.name);
+				LanguageRegistry.addName(button.me, button.name);
 			}
 		}
 		for (MTBItemSensibleButtons sbutton : MTBItemSensibleButtons.values()) {
 			if (sbutton != null && sbutton.me != null && sbutton.name != null && !sbutton.name
 					.isEmpty()) {
-				ModLoader.addName(sbutton.me, sbutton.name);
+				LanguageRegistry.addName(sbutton.me, sbutton.name);
 			}
 		}
 	}
@@ -162,15 +161,15 @@ public class MTBCore {
 
 	public static int configurationProperties() {
 		configuration.load();
-		MTBBlocks.mtButton.id = Integer.parseInt(configuration.get(
+		MTBBlocks.mtButton.id = configuration.get(
 				Configuration.CATEGORY_BLOCK,
 				"mtButton",
-				Block.stoneButton.blockID).value);
+				Block.stoneButton.blockID).getInt();
 		MTBBlocks.mtButton.name = "Multi-Textured Button";
-		MTBBlocks.mtSensibleButton.id = Integer.parseInt(configuration.get(
+		MTBBlocks.mtSensibleButton.id = configuration.get(
 				Configuration.CATEGORY_BLOCK,
 				"mtSensibleButton",
-				Block.woodenButton.blockID).value);
+				Block.woodenButton.blockID).getInt();
 		MTBBlocks.mtSensibleButton.name = "Multi-Textured Sensible Button";
 		nonsensibleButtons();
 		sensibleButtons();
@@ -181,27 +180,27 @@ public class MTBCore {
 	public static void nonsensibleButtons() {
 		MTBItemButtons.smoothStone.name = "Smooth Stone Button";
 		MTBItemButtons.smoothStone.stackID = 0;
-		MTBItemButtons.smoothStone.setTextureIndex(1);
+		MTBItemButtons.smoothStone.setTextureLocation("stone");
 		MTBItemButtons.smoothStone.setBlockHardness(0.8F);
 		MTBItemButtons.polishedStone.name = "Polished Stone Button";
 		MTBItemButtons.polishedStone.stackID = 1;
-		MTBItemButtons.polishedStone.setTextureIndex(6);
+		MTBItemButtons.polishedStone.setTextureLocation("stone_slab_top");
 		MTBItemButtons.polishedStone.setBlockHardness(1.0F);
 		MTBItemButtons.cobbleStone.name = "Cobblestone Button";
 		MTBItemButtons.cobbleStone.stackID = 2;
-		MTBItemButtons.cobbleStone.setTextureIndex(16);
+		MTBItemButtons.cobbleStone.setTextureLocation("cobblestone");
 		MTBItemButtons.cobbleStone.setBlockHardness(1.0F);
 		MTBItemButtons.iron.name = "Iron-Clad Button";
 		MTBItemButtons.iron.stackID = 3;
-		MTBItemButtons.iron.setTextureIndex(22);
+		MTBItemButtons.iron.setTextureLocation("iron_block");
 		MTBItemButtons.iron.setBlockHardness(2.5F);
 		MTBItemButtons.gold.name = "Gold-Plated Button";
 		MTBItemButtons.gold.stackID = 4;
-		MTBItemButtons.gold.setTextureIndex(23);
+		MTBItemButtons.gold.setTextureLocation("gold_block");
 		MTBItemButtons.gold.setBlockHardness(1.5F);
 		MTBItemButtons.diamond.name = "Diamond-Encrusted Button";
 		MTBItemButtons.diamond.stackID = 5;
-		MTBItemButtons.diamond.setTextureIndex(24);
+		MTBItemButtons.diamond.setTextureLocation("diamond_block");
 		MTBItemButtons.diamond.setBlockHardness(2.5F);
 		
 	}
@@ -209,22 +208,22 @@ public class MTBCore {
 	public static void sensibleButtons() {
 		MTBItemSensibleButtons.oakPlank.name = "Oak Wood Button";
 		MTBItemSensibleButtons.oakPlank.stackID = 0;
-		MTBItemSensibleButtons.oakPlank.setTextureIndex(4);
+		MTBItemSensibleButtons.oakPlank.setTextureLocation("planks_oak");
 		MTBItemSensibleButtons.oakPlank.setSensible(true);
 		MTBItemSensibleButtons.oakPlank.setBlockHardness(0.5F);
 		MTBItemSensibleButtons.sprucePlank.name = "Spruce Wood Button";
 		MTBItemSensibleButtons.sprucePlank.stackID = 1;
-		MTBItemSensibleButtons.sprucePlank.setTextureIndex(198);
+		MTBItemSensibleButtons.sprucePlank.setTextureLocation("planks_spruce");
 		MTBItemSensibleButtons.sprucePlank.setSensible(true);
 		MTBItemSensibleButtons.sprucePlank.setBlockHardness(0.5F);
 		MTBItemSensibleButtons.birchPlank.name = "Birch Wood Button";
 		MTBItemSensibleButtons.birchPlank.stackID = 2;
-		MTBItemSensibleButtons.birchPlank.setTextureIndex(214);
+		MTBItemSensibleButtons.birchPlank.setTextureLocation("planks_birch");
 		MTBItemSensibleButtons.birchPlank.setSensible(true);
 		MTBItemSensibleButtons.birchPlank.setBlockHardness(0.5F);
 		MTBItemSensibleButtons.junglePlank.name = "Jungle Wood Button";
 		MTBItemSensibleButtons.junglePlank.stackID = 3;
-		MTBItemSensibleButtons.junglePlank.setTextureIndex(199);
+		MTBItemSensibleButtons.junglePlank.setTextureLocation("planks_jungle");
 		MTBItemSensibleButtons.junglePlank.setSensible(true);
 		MTBItemSensibleButtons.junglePlank.setBlockHardness(0.5F);
 	}

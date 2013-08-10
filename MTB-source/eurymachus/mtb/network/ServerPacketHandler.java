@@ -3,9 +3,9 @@ package eurymachus.mtb.network;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import slimevoid.lib.IPacketHandling;
-import slimevoid.lib.network.PacketTileEntity;
-import slimevoid.lib.network.PacketUpdate;
+import slimevoidlib.IPacketHandling;
+import slimevoidlib.network.PacketTileEntity;
+import slimevoidlib.network.PacketUpdate;
 import eurymachus.mtb.tileentities.TileEntityMTButton;
 
 public class ServerPacketHandler implements IPacketHandling {

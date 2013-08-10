@@ -1,6 +1,7 @@
 package eurymachus.mtb.core;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 
 public enum MTBItemSensibleButtons {
 	oakPlank,
@@ -11,7 +12,7 @@ public enum MTBItemSensibleButtons {
 	public ItemStack me;
 	public int stackID;
 	public String name;
-	private int textureIndex;
+	private String iconLocation;
 	private boolean sensible;
 	private float hardness;
 
@@ -24,13 +25,13 @@ public enum MTBItemSensibleButtons {
 		return null;
 	}
 
-	public static int getTexture(int itemDamage) {
+	public static String getTexture(int itemDamage) {
 		for (MTBItemSensibleButtons itemstack : MTBItemSensibleButtons.values()) {
 			if (itemstack != null && itemstack.stackID == itemDamage) {
-				return itemstack.textureIndex;
+				return itemstack.iconLocation;
 			}
 		}
-		return -1;
+		return null;
 	}
 
 	public static boolean getSensible(int itemDamage) {
@@ -51,8 +52,8 @@ public enum MTBItemSensibleButtons {
 		return 0.5F;
 	}
 
-	public void setTextureIndex(int textureIndex) {
-		this.textureIndex = textureIndex;
+	public void setTextureLocation(String texture) {
+		this.iconLocation = texture;
 	}
 
 	public void setSensible(boolean sensible) {

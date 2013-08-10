@@ -6,27 +6,22 @@ import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.Configuration;
-import slimevoid.lib.ICommonProxy;
-import slimevoid.lib.ICore;
-import slimevoid.lib.core.Core;
-import slimevoid.lib.core.SlimevoidCore;
-import slimevoid.lib.util.BlockRemover;
-import slimevoid.lib.util.RecipeRemover;
+import slimevoidlib.core.SlimevoidCore;
+import slimevoidlib.core.SlimevoidLib;
+import slimevoidlib.util.BlockRemover;
+import slimevoidlib.util.RecipeRemover;
+import eurymachus.mtb.core.lib.CoreLib;
 import eurymachus.mtb.tileentities.TileEntityMTButton;
 
 public class MTBInit {
-	public static ICore MTB;
 	private static boolean initialized = false;
 
-	public static void initialize(ICommonProxy proxy) {
+	public static void initialize() {
 		if (initialized)
 			return;
 		initialized = true;
-		MTB = new Core(proxy);
-		MTB.setModName("MultiTexturedButtons");
-		MTB.setModChannel("MTB");
 		MTBCore.configFile = new File(
-				MTBInit.MTB.getProxy().getMinecraftDir(),
+				SlimevoidLib.proxy.getMinecraftDir(),
 					"config/MultiTexturedButtons.cfg");
 		MTBCore.configuration = new Configuration(MTBCore.configFile);
 		load();
@@ -34,21 +29,21 @@ public class MTBInit {
 
 	public static void load() {
 		MTBCore.configurationProperties();
-		SlimevoidCore.console(MTB.getModName(), "Removing Recipies...");
+		SlimevoidCore.console(CoreLib.MOD_NAME, "Removing Recipies...");
 		RecipeRemover.registerItemRecipeToRemove(Block.woodenButton);
 		RecipeRemover.registerItemRecipeToRemove(Block.stoneButton);
 		RecipeRemover.removeCrafting();
-		SlimevoidCore.console(MTB.getModName(), "Removing Blocks...");
+		SlimevoidCore.console(CoreLib.MOD_NAME, "Removing Blocks...");
 		BlockRemover.removeVanillaBlock(Block.woodenButton);
 		BlockRemover.removeVanillaBlock(Block.stoneButton);
-		SlimevoidCore.console(MTB.getModName(), "Registering items...");
+		SlimevoidCore.console(CoreLib.MOD_NAME, "Registering items...");
 		MTBCore.addItems();
-		SlimevoidCore.console(MTB.getModName(), "Registering blocks...");
+		SlimevoidCore.console(CoreLib.MOD_NAME, "Registering blocks...");
 		MTBCore.registerBlocks();
-		MTB.getProxy().registerRenderInformation();
-		SlimevoidCore.console(MTB.getModName(), "Naming items...");
+		MultiTexturedButtons.proxy.registerRenderInformation();
+		SlimevoidCore.console(CoreLib.MOD_NAME, "Naming items...");
 		MTBCore.addItemNames();
-		SlimevoidCore.console(MTB.getModName(), "Registering recipes...");
+		SlimevoidCore.console(CoreLib.MOD_NAME, "Registering recipes...");
 		MTBCore.addRecipes();
 	}
 

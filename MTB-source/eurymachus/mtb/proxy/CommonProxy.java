@@ -10,9 +10,9 @@ import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import slimevoid.lib.ICommonProxy;
-import slimevoid.lib.IPacketHandling;
-import slimevoid.lib.network.PacketIds;
+import slimevoidlib.ICommonProxy;
+import slimevoidlib.IPacketHandling;
+import slimevoidlib.network.PacketIds;
 import cpw.mods.fml.common.network.Player;
 import eurymachus.mtb.core.MTBInit;
 import eurymachus.mtb.network.ServerPacketHandler;
@@ -77,7 +77,7 @@ public class CommonProxy implements ICommonProxy {
 			case PacketIds.TILE:
 				PacketUpdateMTButton packetButton = new PacketUpdateMTButton();
 				packetButton.readData(data);
-				MTBInit.MTB.getPacketHandler().handleTileEntityPacket(
+				this.getPacketHandler().handleTileEntityPacket(
 						packetButton,
 						entityplayer,
 						world);

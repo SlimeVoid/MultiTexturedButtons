@@ -4,7 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.src.ModLoader;
 import net.minecraft.tileentity.TileEntity;
-import slimevoid.lib.IPacketHandling;
+import slimevoidlib.IPacketHandling;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import eurymachus.mtb.client.network.ClientPacketHandler;
@@ -16,7 +16,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public String getMinecraftDir() {
-		return Minecraft.getMinecraftDir().toString();
+		return Minecraft.getMinecraft().mcDataDir.getPath();
 	}
 
 	@Override
@@ -69,16 +69,12 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public int getBlockTextureFromSideAndMetadata(int side, int meta) {
-		if (side != 0) {
-			int texture = MTBItemButtons.getTexture(meta);
-			return texture;
-		}
-		return getBlockTextureFromMetadata(meta);
+		return 0;
 	}
 
 	@Override
 	public int getBlockTextureFromMetadata(int meta) {
-		if (meta > 1) {
+		/*if (meta > 1) {
 			return MTBItemButtons.getTexture(meta);
 		}
 		int texture = -1;
@@ -98,7 +94,8 @@ public class ClientProxy extends CommonProxy {
 		texture = MTBItemButtons.getTexture(texture);
 		if (texture == -1)
 			texture = 22;
-		return texture;
+		return texture;*/
+		return 0;
 	}
 
 	@Override

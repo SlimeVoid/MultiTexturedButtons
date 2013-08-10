@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import eurymachus.mtb.core.MTBBlocks;
 import eurymachus.mtb.core.MTBItemButtons;
@@ -30,9 +31,9 @@ public class ItemMTButton extends ItemBlock {
 	}
 
 	@Override
-	public String getItemNameIS(ItemStack itemstack) {
+	public String getUnlocalizedName(ItemStack itemstack) {
 		return (new StringBuilder())
-				.append(super.getItemName())
+				.append(super.getUnlocalizedName())
 					.append(".")
 					.append(buttonNames[itemstack.getItemDamage()])
 					.toString();
@@ -46,8 +47,8 @@ public class ItemMTButton extends ItemBlock {
 	 * Gets an icon index based on an item's damage value
 	 */
 	@Override
-	public int getIconFromDamage(int par1) {
-		return this.blockRef.getBlockTextureFromSideAndMetadata(0, par1);
+	public Icon getIconFromDamage(int par1) {
+		return this.blockRef.getIcon(0, par1);
 	}
 
 	@Override
@@ -90,7 +91,8 @@ public class ItemMTButton extends ItemBlock {
 				k,
 				false,
 				l,
-				entityplayer)) {
+				entityplayer,
+				itemstack)) {
 			int meta = this.getMetadata(itemstack.getItemDamage());
 			int data = button.onBlockPlaced(world, i, j, k, l, a, b, c, meta); /*onBlockPlaced*/
 			if (this.placeBlockAt(
@@ -106,7 +108,7 @@ public class ItemMTButton extends ItemBlock {
 					c,
 					data)) {
 				if (world.getBlockId(i, j, k) == button.blockID) {
-					button.onBlockPlacedBy(world, i, j, k, entityplayer);
+					button.onBlockPlacedBy(world, i, j, k, entityplayer, itemstack);
 					TileEntity tileentity = world.getBlockTileEntity(i, j, k);
 
 					if (tileentity != null && tileentity instanceof TileEntityMTButton) {
