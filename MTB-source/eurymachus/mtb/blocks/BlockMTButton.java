@@ -52,6 +52,7 @@ public class BlockMTButton extends BlockButton implements ITileEntityProvider {
 			//setRequiresSelfNotify();
 		}
 	}
+	
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
 		if (this.blockID == MTBBlocks.mtButton.id) {
