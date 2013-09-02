@@ -9,6 +9,7 @@ import slimevoidlib.network.PacketUpdate;
 import eurymachus.mtb.tileentities.TileEntityMTButton;
 
 public class ClientPacketHandler implements IPacketHandling {
+	
 	@Override
 	public void handleTileEntityPacket(PacketTileEntity packet, EntityPlayer entityplayer, World world) {
 		if (packet != null && packet.targetExists(world)) {

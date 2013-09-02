@@ -9,7 +9,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import eurymachus.mtb.core.lib.CoreLib;
-import eurymachus.mtb.network.MTBConnection;
+import eurymachus.mtb.proxy.CommonProxy;
 
 @Mod(
 		modid = CoreLib.MOD_ID,
@@ -20,8 +20,8 @@ import eurymachus.mtb.network.MTBConnection;
 		clientSideRequired = true,
 		serverSideRequired = false,
 		channels = { CoreLib.MOD_CHANNEL },
-		packetHandler = MTBConnection.class,
-		connectionHandler = MTBConnection.class)
+		packetHandler = CommonProxy.class,
+		connectionHandler = CommonProxy.class)
 public class MultiTexturedButtons {
 	@SidedProxy(
 			clientSide = CoreLib.CLIENT_PROXY,

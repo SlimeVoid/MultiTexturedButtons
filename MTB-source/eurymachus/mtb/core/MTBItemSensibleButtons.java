@@ -1,7 +1,6 @@
 package eurymachus.mtb.core;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
 
 public enum MTBItemSensibleButtons {
 	oakPlank,
